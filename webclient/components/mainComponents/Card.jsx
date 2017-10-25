@@ -14,6 +14,11 @@ import AceEditor from 'react-ace';
 import 'brace/mode/properties';
 import 'brace/theme/monokai';
 
+const ReactToastr = require('react-toastr');
+const {ToastContainer} = ReactToastr;
+const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
+
 class Card extends React.Component {
   constructor() {
     super();
@@ -27,6 +32,7 @@ class Card extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.onChangeData = this.onChangeData.bind(this);
     this.restartJavaApp = this.restartJavaApp.bind(this);
+    this.updateSuccessAlert = this.updateSuccessAlert.bind(this);
   }
   modalForEditor() {
     this.setState({
@@ -70,7 +76,7 @@ class Card extends React.Component {
        success: function(res)
        {
          console.log(res);
-         this.setState({fileContent: res});
+         this.setState({fileContent: res, updatedData: res});
        }.bind(this),
        error: function(err)
        {
@@ -104,6 +110,7 @@ class Card extends React.Component {
          this.setState({
            isOpen: false
          });
+         this.updateSuccessAlert();
        }.bind(this),
        error: function(err)
        {
@@ -130,6 +137,17 @@ class Card extends React.Component {
        }.bind(this)
      });
   }
+updateSuccessAlert() {
+  //console.log("inside check for Scenario updated successfully alert");
+  let context = this;
+  this.refs.asd.success(
+    'property file updated successfully',
+    '', {
+    timeOut: 3000,
+    extendedTimeOut: 3000
+  }
+);
+}
   render() {
     console.log(this.props.cardTitle);
         return(
@@ -177,6 +195,9 @@ class Card extends React.Component {
                         />
                         </ModalBody>
                     </Modal>
+                    <ToastContainer ref='asd'
+                          toastMessageFactory={ToastMessageFactory}
+                          className='toast-top-center' style={{marginTop:'8%'}}/>
           </div>
         );
 }
