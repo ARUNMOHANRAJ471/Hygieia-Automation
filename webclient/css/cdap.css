@@ -1,0 +1,75 @@
+.card {
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  margin: 10px !important;
+  width: 250px;
+}
+
+.card-01 .card-body {
+  position: relative;
+  padding-top: 40px;
+}
+
+.card-01.height-fix {
+  height: 455px;
+  overflow: hidden;
+}
+
+.profile-box {
+  background-size: cover;
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-box img {
+  width: 170px;
+  height: 170px;
+  position: relative;
+  border: 5px solid #fff;
+}
+
+.rounded-circle {
+  border-radius: 50%;
+}
+.card-title {
+  text-align: center;
+  font-weight: bold;
+}
+.card-text {
+  text-align: center;
+  padding: 5px;
+  padding-bottom: 10px;
+}
+.clickCursor {
+  cursor: pointer;
+}
+.fbc-pink {
+    background-color: #F27AAA;
+}
+.fbc-elem {
+    height: 2px;
+}
+.footer-brand-colour {
+  padding-top: 10px;
+  padding-bottom: 9px;
+}
+.fbc-yellow {
+    background-color: #FAED23;
+}
+.fbc-blue {
+    background-color: #6FCCDD;
+}
+#footer{
+  background-color: white;
+}
+#footerTextAllignment{
+text-align: center;
+font-size: 12px;
+color: #646363;
+font-family: arial;
+margin-top: 1%;
+}
